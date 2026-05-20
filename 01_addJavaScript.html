@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add JavaScript in HTML</title>
+    <style>
+        .dark{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body id="body">
+    <h1 id="title">Welcome to Red & White Skill Education.!</h1>
+    <button onclick="changeColor()">Change Color</button>
+    <button onclick="" id="btn">Change Theme</button>
+
+
+    <!-- internal js -->
+    <script>
+        function changeColor(){
+            document.getElementById('title').style = "color:red";
+        }
+
+        // console.log("Hello Students.!!")
+        // alert('Hello Students')
+        // confirm("Are you sure?")
+        // prompt("Enter your name:")
+    </script>
+
+    <!-- external js -->
+    <script src="./app.js"></script>
+</body>
+</html>

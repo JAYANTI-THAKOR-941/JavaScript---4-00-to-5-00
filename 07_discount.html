@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Discount</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <input type="number" id="amount" placeholder="Enter your purchase Amount.">
+        <button onclick="applyDiscount()">Apply Discount</button>
+
+        <div id="info"></div>
+    </div>
+
+    <script>
+
+        let customerName = prompt("Enter your good name:");
+        function applyDiscount() {
+            let amount = Number(document.getElementById('amount').value);
+            let discount = 5;
+
+            let discountAmount = (amount * discount) / 100;
+
+            let finalAmount = amount - discountAmount;
+
+            document.getElementById('info').innerHTML = `<h2>Customer Name:${customerName}</h2>
+            <h3>Purchase Amount:${amount}</h3>
+            <h3>Discount Amount:${discountAmount}</h3>
+            <h3>===============================</h3>
+            <h3>Final Amount:${finalAmount}</h3>
+        `;
+        }
+
+    </script>
+</body>
+
+</html>

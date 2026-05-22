@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .form-container{
+            width: 500px;
+            margin: 4% auto;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,.2);
+        }
+        input{
+            width: 100%;
+            padding: 10px 22px;
+            margin: 14px 0;
+        }
+        button{
+            padding: 12px 28px;
+            background-color: green;
+            color: white;
+            border: 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        a{
+            display: block;
+            margin: 4px 0;
+            text-decoration: none;
+        }
+        #msg{
+            margin-top: 14px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Login</h2>
+        <input type="text" id="userEmail" placeholder="Enter Email.">
+        <input type="text" id="userPassword" placeholder="Enter Password.">
+        <a href="#">Create an account?</a><br>
+        <button onclick="authLogin() ">Login</button>
+        <h3 id="msg"></h3>
+    </div>
+
+    <script>
+
+        function authLogin() {
+            let userEmail = document.getElementById('userEmail').value;
+            let userPassword = document.getElementById('userPassword').value;
+
+            let msg = "";
+
+            let correctEmail = "rwgn1.jayanti.rt@gmail.com";
+
+            let correctPassword = "123@pipl";
+
+            if (userEmail === "" && userPassword === "") {
+                msg = "All feild are required.!";
+            }
+
+            else if (userEmail === correctEmail && userPassword === correctPassword) {
+                msg = "Login successfully.!";
+            }
+            else {
+                msg = "Incorrect userEmail & Password.!!";
+            }
+
+            document.getElementById('msg').innerText = msg;
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

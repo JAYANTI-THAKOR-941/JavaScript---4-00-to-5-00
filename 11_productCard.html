@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #product-container{
+            width: 350px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,.1);
+            cursor: pointer;
+            margin: 4% auto;
+        }
+        .bottom{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #product-container p{
+            margin: 12px 0;
+        
+        }
+        button{
+            padding: 12px 24px;
+            border: 0;
+            border-radius: 5px;
+            background-color: brown;
+            color: white;
+            cursor: pointer;
+        }
+        img{
+            width: 100%;
+            max-width: 300px;
+            object-fit: contain;
+        }
+        .info{
+            color: green;
+        }
+        .danger{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="product-container">
+        
+    </div>
+
+    <script>
+        // product object
+        let product = {
+            name:"Wireless Mouse",
+            description:"Smooth and fast wireless mouse",
+            category:"Electronics",
+            price:499,
+            stock:0,
+            image:"https://m.media-amazon.com/images/I/31GXPIBH-OL._SY300_SX300_QL70_FMwebp_.jpg"
+        }
+
+        let productContainer = document.getElementById('product-container');
+
+        let text = product.stock > 0 ? `<span class="info">In Stock</span>` : `<span class="danger">Out of Stock</span>`;
+
+        productContainer.innerHTML = `
+            <img src=${product.image} alt="">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <p>${product.category}</p>
+            <div class="bottom">
+                 <p>Price:₹${product.price}</p>
+                 <span>${text}</span>
+            </div>
+            <button>Shop Now</button>
+        `
+
+
+
+    </script>
+</body>
+</html>

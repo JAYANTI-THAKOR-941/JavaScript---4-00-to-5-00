@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .form-container{
+            width: 600px;
+            padding: 20px;
+        }
+        input{
+            width: 100%;
+            margin: 12px 0;
+            padding: 10px;
+        }
+        button{
+            background-color: black;
+            color: white;
+            padding: 12px 24px;
+            cursor: pointer;
+            border: 0;
+            border-radius: 5px;
+        }
+
+        #product-container{
+            display: flex;
+            justify-content: space-around;
+            margin: 3% auto;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .card{
+            width: 350px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,.1);
+            border-radius: 5px;
+            border: 0;
+        }
+        .card p{
+            margin: 14px 0;
+        }
+        .card img{
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <input type="text" placeholder="Enter Product Name." id="name">
+        <input type="text" placeholder="Enter Product Description." id="description">
+        <input type="text" placeholder="Enter Product Price." id="price">
+        <input type="text" placeholder="Enter Product Image." id="image">
+        <button onclick="addProduct()">Add Product</button>
+    </div>
+
+    <div id="product-container">
+
+    </div>
+
+
+    <script>
+
+        let productContainer = document.getElementById('product-container');
+
+        function addProduct() {
+            let name = document.getElementById('name').value;
+            let description = document.getElementById('description').value;
+            let price = document.getElementById('price').value;
+            let image = document.getElementById('image').value;
+
+            let card = "";
+
+            if (name === "" || description === "" || price === "" || image === "") {
+                alert("All filed are required.!!")
+            }
+            else {
+                card += ` <div class="card">
+        <img src=${image} alt="">
+        <h3>${name}</h3>
+        <p>${description}</p>
+        <p>Price:₹${price}</p>
+        <button>Shop Now</button>
+    </div>`
+            }
+
+            productContainer.innerHTML += card;
+        }
+    </script>
+
+</body>
+
+</html>

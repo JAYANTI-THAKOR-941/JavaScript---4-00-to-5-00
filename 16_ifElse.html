@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+   <div class="container">
+     <div class="login-form">
+        <h2>Login</h2>
+        <input type="text" placeholder="Email." id="emailId">
+        <input type="text" placeholder="Password." id="password">
+        <a href="#">Forgot password?</a><br>
+        <button onclick="loginUser()">Login</button><br>
+        <span>Create an account?<a href="#">Register</a></span>
+    </div>
+   </div>
+
+    <script>
+        function loginUser(){
+            let email = document.getElementById('emailId').value;
+            let password = document.getElementById('password').value;
+
+            if(email === "" || password === ""){
+                alert("All Field are required.!!")
+                return;
+            }
+
+            if(email === "jyantithakor941@gmail.com" && password === "123@pipl"){
+                window.location.href = 'index.html';
+            }
+            else if(email === "admin@gmail.com" && password === "admin@123"){
+                window.location.href = 'admin.html';
+            }
+            else{
+                alert("Invalid email and password.!!");
+            }
+        }
+    </script>
+</body>
+</html>

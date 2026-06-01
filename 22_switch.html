@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Case in JavaScript</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Event Registration Process</h1>
+        <label for="name">Enter Your Name.</label>
+        <input type="text" id="studentName">
+
+        <label for="eventName">Select Event.</label>
+        <select name="" id="event">
+            <option value="">Select Event</option>
+            <option value="web">Web Development Workshop</option>
+            <option value="mobile">Mobile App Development</option>
+            <option value="cyber">Cyber Security</option>
+            <option value="design">UI & UX Design</option>
+        </select>
+        <button onclick="eventRegistration()">Register</button>
+        <div id="msg-box">
+
+        </div>
+    </div>
+
+
+    <script>
+        function eventRegistration(){
+            const studentName = document.getElementById('studentName').value;
+            const event = document.getElementById('event').value;
+            
+            const msg = document.getElementById('msg-box');
+
+            let fees = "";
+            let eventName = "";
+
+
+            switch(event){
+
+                case 'web':
+                    fees = 500;
+                    eventName = "Web Development";
+                    break;
+                
+                case 'mobile':
+                    fees = 750;
+                    eventName = "Mobile App Development";
+                    break;
+                
+                case 'cyber':
+                    fees = 1000;
+                    eventName = "Cyber Security";
+                    break;
+
+                case 'design': 
+                    fees = 850;
+                    eventName = "UI & UX Design";
+                    break;
+
+                default : 
+                    alert("Please select event.!");
+                    break;
+            }
+            msg.innerHTML = `
+            <h2>Register Successfully</h2>
+            <h3>StudentName:${studentName}</h3>
+            <p><b>EventName :</b> ${eventName}</p>
+            <p><b>EventFees :<b> ${fees}</p>
+            <p><b>Event Date :</b> 05-06-2026</p>
+            `
+        }
+    </script>
+</body>
+</html>

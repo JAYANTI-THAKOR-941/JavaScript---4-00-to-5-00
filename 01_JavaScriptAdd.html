@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add JavaScript in HTML</title>
+    <style>
+        .dark{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body id="body">
+    <h1 id="title">Hello Students.!!</h1>
+    <p id="p-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae officiis nihil maxime similique, inventore explicabo porro illo voluptatum earum. Fugit, iusto! Itaque vero provident adipisci eligendi odio quia ut harum.</p>
+    <button id="btn" onclick="changeP1()">Get Started</button>
+
+    <button id="btn-2">Change Theme</button>
+
+
+    <script>
+        document.getElementById('title').style = "color:red";
+
+        function changeP1(){
+            document.getElementById('p-1').style = "color:green;font-size:20px";
+        }
+    </script>
+   
+    <script src="./main.js"></script>
+</body>
+</html>

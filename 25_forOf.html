@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Of loop in JavaScript</title>
+    <style>
+        li{
+            margin: 12px 0;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Explore Our Courses</h1>
+    <ul id="course-list"></ul>
+    <script>
+        const courses = ["Full Stack Development","UI & UX Design","Cyber Security","Ai & ML Data Science","Digital Marketing","Video Editing"];
+
+        let data = "";
+
+        for(let course of courses){
+            data += `<li> ${course} </li>`
+        }
+
+        document.getElementById('course-list').innerHTML = data;
+    </script>
+</body>
+</html>

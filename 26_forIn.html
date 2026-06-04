@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For in loop</title>
+</head>
+<body>
+    
+    <div id="card"></div>
+
+    <script>
+        let userInfo = {
+            name:"Jayanti Thakor",
+            age:24,
+            city:"Gandhinagar",
+            favourite_programming : "JavaScript"
+        }
+
+        let data = "";
+        for(let user in userInfo){
+            data += `<h3> ${user} : ${userInfo[user]} </h3>`
+        }
+
+        document.getElementById('card').innerHTML = data;
+    </script>
+</body>
+</html>

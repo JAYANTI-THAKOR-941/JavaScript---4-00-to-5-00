@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function In JavaScript</title>
+    <style>
+        .dark{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body id="body">
+    <h1>Welcome to Red & White.</h1>
+    <button onclick="changeTheme()">Change Theme</button>
+
+    <script>
+        
+        function changeTheme(){
+            let body = document.getElementById('body');
+            body.classList.toggle('dark');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator in JavaScirpt</title>
+</head>
+<body>
+    
+    <div class="container">
+        <input type="text" placeholder="Enter Email." id="emailId">
+        <input type="text" placeholder="Enter Password." id="password">
+        <button onclick="authLogin()">Login</button>
+    </div>
+    <script>
+        
+        function authLogin(){
+            let emailId = document.getElementById('emailId').value;
+            let password = document.getElementById('password').value;
+
+            if(emailId === "rwgn1.jayanti.rt@gmail.com" && password === "123@pipl"){
+                alert("Login Successfully.")
+            }
+            else{
+                alert("Incorrect username and password.!")
+            }
+        }
+        
+    </script>
+</body>
+</html>

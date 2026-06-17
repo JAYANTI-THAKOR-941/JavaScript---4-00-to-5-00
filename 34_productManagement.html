@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 90%;
+            margin: 4% auto;
+        }
+
+        table,
+        th,
+        tr,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 9px;
+        }
+
+        button {
+            padding: 10px 26px;
+            margin: 0 14px;
+            border: 0;
+            border-radius: 5px;
+            background-color: rgb(43, 99, 43);
+            color: white;
+            cursor: pointer;
+        }
+
+        .btn2 {
+            background-color: red;
+        }
+
+        caption {
+            margin: 12px 0;
+        }
+        td img{
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+        .form-container{
+            width: 800px;
+            margin: 4% auto;
+        }
+        input{
+            width: 100%;
+            padding: 10px;
+            margin: 14px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table>
+        <caption>
+            <h1>Product Management</h1>
+        </caption>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="productTable">
+
+        </tbody>
+    </table>
+
+
+
+    <div class="form-container">
+        <input type="text" placeholder="Enter Name" id="name">
+        <input type="text" placeholder="Enter Description" id="description">
+        <input type="text" placeholder="Enter Price" id="price">
+        <input type="text" placeholder="Enter Category" id="category">
+        <input type="text" placeholder="Enter Image URL" id="image">
+        <button onclick="addProduct()">Add Product</button>
+    </div>
+
+    <script>
+        // object array
+        const products = [
+            {
+                id: 1,
+                name: "Wireless Headphones",
+                description: "High-quality Bluetooth headphones with noise cancellation",
+                price: 2499,
+                category: "Electronics",
+                image: "https://rukminim2.flixcart.com/image/1920/1920/xif0q/headphone/a/h/j/-original-imahgnf4dp5tfjhm.jpeg?q=90"
+            },
+            {
+                id: 2,
+                name: "Smart Watch",
+                description: "Fitness tracking smartwatch with heart rate monitoring",
+                price: 3999,
+                category: "Electronics",
+                image: "https://rukminim1.flixcart.com/image/1920/1920/xif0q/smartwatch/l/l/f/-original-imahe8sqxggtvkhy.jpeg?q=90"
+            },
+            {
+                id: 3,
+                name: "Running Shoes",
+                description: "Lightweight and comfortable running shoes",
+                price: 1899,
+                category: "Footwear",
+                image: "https://rukminim1.flixcart.com/image/1920/1920/xif0q/shoe/q/h/z/10-asgo1354-white-ice-blue-10-abros-white-ice-blue-original-imahbzpn7yqxypre.jpeg?q=90"
+            },
+            {
+                id: 4,
+                name: "Backpack",
+                description: "Durable backpack with multiple compartments",
+                price: 1299,
+                category: "Accessories",
+                image: "https://rukminim1.flixcart.com/image/1920/1920/xif0q/backpack/r/q/m/-original-imahmfxrgfsjbzmu.jpeg?q=90"
+            },
+            {
+                id: 5,
+                name: "Coffee Mug",
+                description: "Stylish ceramic coffee mug",
+                price: 299,
+                category: "Home & Kitchen",
+                image: "https://rukminim1.flixcart.com/image/1920/1920/xif0q/mug/k/h/m/insulated-coffee-mug-hot-and-cold-400-0-1-v4care-original-imahz6sskykths4g.jpeg?q=90"
+            }
+        ];
+
+        const displayProducts = () => {
+            const productTable = document.getElementById("productTable");
+            productTable.innerHTML = "";
+
+            products.forEach((product) => {
+                productTable.innerHTML += `<tr>
+                        <td>${product.id}</td>
+                        <td><img src="${product.image}" alt="${product.name}" /></td>
+                        <td>${product.name}</td>
+                        <td>${product.description}</td>
+                        <td>${product.price}</td>
+                        <td>${product.category}</td>
+                        <td><button>Edit</button><button class="btn2">Delete</button></td>
+                    </tr>`;
+            })
+        }
+
+        const addProduct = () => {
+            let name = document.getElementById("name").value;
+            let description = document.getElementById("description").value;
+            let price = document.getElementById("price").value;
+            let category = document.getElementById("category").value;
+            let image = document.getElementById("image").value;
+
+            const newProduct = {
+                id: products.length + 1,
+                name,
+                description,
+                price: Number(price),
+                category,
+                image
+            }
+
+            products.push(newProduct);
+
+            displayProducts();
+        }
+
+
+        displayProducts();
+
+    </script>
+</body>
+
+</html>

@@ -86,7 +86,6 @@
     </table>
 
 
-
     <div class="form-container">
         <input type="text" placeholder="Enter Name" id="name">
         <input type="text" placeholder="Enter Description" id="description">
@@ -204,6 +203,7 @@
             const product = products.find((p) => p.id == id);
 
             editId = product.id;
+
             document.getElementById("name").value = product.name;
             document.getElementById("description").value = product.description;
             document.getElementById("price").value = product.price;

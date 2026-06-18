@@ -43,16 +43,19 @@
         caption {
             margin: 12px 0;
         }
-        td img{
+
+        td img {
             width: 80px;
             height: 80px;
             object-fit: contain;
         }
-        .form-container{
+
+        .form-container {
             width: 800px;
             margin: 4% auto;
         }
-        input{
+
+        input {
             width: 100%;
             padding: 10px;
             margin: 14px 0;
@@ -90,7 +93,7 @@
         <input type="text" placeholder="Enter Price" id="price">
         <input type="text" placeholder="Enter Category" id="category">
         <input type="text" placeholder="Enter Image URL" id="image">
-        <button onclick="addProduct()">Add Product</button>
+        <button onclick="addProduct()" id="btn">Add Product</button>
     </div>
 
     <script>
@@ -150,10 +153,15 @@
                         <td>${product.description}</td>
                         <td>${product.price}</td>
                         <td>${product.category}</td>
-                        <td><button>Edit</button><button class="btn2">Delete</button></td>
+                        <td>
+                            <button onclick="editProduct(${product.id})">Edit</button>
+                            <button onclick="deleteProduct(${product.id})" class="btn2">Delete</button>
+                        </td>
                     </tr>`;
             })
         }
+
+        let editId = "";
 
         const addProduct = () => {
             let name = document.getElementById("name").value;
@@ -162,20 +170,65 @@
             let category = document.getElementById("category").value;
             let image = document.getElementById("image").value;
 
-            const newProduct = {
-                id: products.length + 1,
-                name,
-                description,
-                price: Number(price),
-                category,
-                image
-            }
+            if (editId) {
+                const product = products.find((p) => p.id == editId);
 
-            products.push(newProduct);
+                product.name = name;
+                product.description = description;
+                product.price = price;
+                product.category = category;
+                product.image = image;
+
+                editId = null;
+                alert("Product Updated successfully.")
+                displayProducts();
+                clearForm();
+            }
+            else {
+                const newProduct = {
+                    id: products.length + 1,
+                    name,
+                    description,
+                    price: Number(price),
+                    category,
+                    image
+                }
+
+                products.push(newProduct);
+            }
 
             displayProducts();
         }
 
+        const editProduct = (id) => {
+            const product = products.find((p) => p.id == id);
+
+            editId = product.id;
+            document.getElementById("name").value = product.name;
+            document.getElementById("description").value = product.description;
+            document.getElementById("price").value = product.price;
+            document.getElementById("category").value = product.category;
+            document.getElementById("image").value = product.image;
+            document.getElementById("btn").innerText = "Update Product"
+        }
+
+        const deleteProduct = (id) => {
+            const index = products.findIndex((p) => p.id == id);
+
+            confirm("Are you sure? want to delete this product.!");
+            products.splice(index, 1);
+            alert("Product deleted successfully.!")
+            displayProducts();
+        }
+
+        const clearForm = () => {
+            document.getElementById("name").value = "";
+            document.getElementById("description").value = "";
+            document.getElementById("price").value = "";
+            document.getElementById("category").value = "";
+            document.getElementById("image").value = "";
+            document.getElementById("btn").innerText = "Add Product"
+        }
 
         displayProducts();
 

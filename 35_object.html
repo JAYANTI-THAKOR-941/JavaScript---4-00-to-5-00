@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object in JavaScript</title>
+</head>
+<body>
+    
+    <h1 id="data"></h1>
+
+    <script>
+
+        //object in javascript
+         const person = {
+            name:"Jayanti Thakor",
+            age:24,
+            city:"Gandhinagar",
+            contact:"8160041921",
+         }
+        
+        //  document.write(person.name);
+
+        // document.getElementById("data").innerHTML = "username is:" +person["name"] + "<br> City is : "+person["city"];
+
+        person.enrollCourse = "Full Stack Development";
+        delete person.contact;
+        let data = "";
+
+        for(let i in person){
+            data += i + " : " + person[i] + "<br>";
+        }
+        document.getElementById("data").innerHTML = data;
+
+
+        const product = new Object();
+
+        product.productName = "Laptop";
+        product.price = 56000;
+        product.category = "Electronics";
+
+
+
+    </script>
+</body>
+</html>

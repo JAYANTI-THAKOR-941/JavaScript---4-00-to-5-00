@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM in JavaScript</title>
+    <style>
+        .title{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="demo1">Red & White Skill Education</h1>
+    <h2 class="demo2">Hello Students</h2>
+    <h2 class="demo2">Hello Everyone.!</h2>
+    <h2 class="demo2">Hello Friends.!</h2>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis sit facere velit, quo corrupti distinctio repellendus, sunt molestiae quasi et, eligendi voluptatibus delectus veritatis adipisci. Cupiditate explicabo ut cum modi.</p>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum sunt iure ratione. Voluptatibus veniam fugit quam omnis labore eos velit!</p>
+
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur sequi voluptatem, eos totam omnis architecto?</p>
+
+    <button id="btn">Change Image</button>
+    <img src="https://www.theforage.com/blog/wp-content/uploads/2022/09/tech-companies.jpg" alt="" width="600px" id="techImg">
+
+    <div id="box">
+
+    </div>
+
+    <script>
+        // document.getElementById("demo1").style = "background-color:lightblue";
+        document.getElementById("demo1").style.fontSize="45px";
+
+        document.getElementsByClassName('demo2')[2].innerText = "Jay Bharat";
+
+        document.getElementsByTagName("p")[1].innerHTML = "<h1>RW SKILL EDUCATION</h1>";
+
+        const btn = document.getElementById("btn");
+
+        btn.addEventListener("click",()=>{
+             document.getElementById('techImg').src = "https://d17thj9kqp1mkn.cloudfront.net/strapi-assets-tech_a34b41e7f9.jpg"
+        })
+       
+        const title = document.createElement("h1");
+        title.innerText = "Welcome to RW Skill Gandhinagar";
+        title.classList.add("title");
+
+        const box = document.getElementById('box');
+        box.appendChild(title);
+
+
+    </script>
+</body>
+</html>

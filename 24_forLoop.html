@@ -63,6 +63,7 @@
         <h1>Discover Amazing Products at Unbeatable Prices</h1>
         <p>Browse our wide range of high-quality products, from electronics and fashion to accessories and home essentials. Shop with confidence and find everything you need in one place.</p>
     </div>
+    
     <div id="product-container">
         
     </div>
@@ -78,8 +79,12 @@
             <h3>${products[i].name}</h3>
             <p>${products[i].desc}</p>
             <p>${products[i].price}</p>
-            <button>View Details</button>
+            <button onclick="viewDetails(${products[i].id})">View Details</button>
         </div>`;
+        }
+
+        function viewDetails(id){
+            window.location.href = `productDescription.html?id=${id}`;
         }
 
         document.getElementById('product-container').innerHTML = card;

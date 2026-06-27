@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>productDescription</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        #product-description{
+            display: flex;
+            justify-content: space-around;
+            gap: 40px;
+            margin: 4% auto;
+            width: 1400px;
+        }
+        .product-img{
+            width: 50%;
+        }
+        .product-img img{
+            width: 500px;
+            height: 300px;
+            object-fit: contain;
+        }
+        .product-info{
+            width:50%;
+        }
+        .product-info p{
+            margin: 14px 0;
+        }
+        button{
+            padding: 12px 24px;
+            text-align: left;
+            border: 0;
+            border-radius: 5px;
+            background-color: rgb(246, 82, 6);
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="product-description">
+
+    </div>
+
+    <script src="./products.js"></script>
+    <script>
+        let params = new URLSearchParams(window.location.search);
+        let id = Number(params.get("id"));
+
+        const product = products.find((p) => p.id == id);
+
+        const productDescription = document.getElementById("product-description");
+
+        if (product) {
+            productDescription.innerHTML = `
+                 <div class="product-img">
+            <img src="${product.image}" alt="">
+        </div>
+        <div class="product-info">
+            <h1>${product.name}</h1>
+            <p>${product.longDesc}</p>
+            <p>Price:₹${product.price}</p>
+            <p>${product.category}</p>
+            <button>Add To Cart</button>
+        </div>
+            `;
+        }
+        else {
+            productDescription.innerHTML = "<h1>Product Not Found.</h1>"
+        }
+    </script>
+</body>
+
+</html>
